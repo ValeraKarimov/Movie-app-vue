@@ -25,13 +25,23 @@ export default {
   computed: {
     ...mapGetters('movies', ["moviesList", "currentPage", "moviesPerPage", "moviesLength"]),
   },
+  watch: {
+    '$route.query': {
+      handler: 'onPageQueryChanged',
+      immediate: true,
+      deep: true,
+    },
+  },
   methods: {
     ...mapActions('movies', ['changeCurrentPage']),
+    onPageQueryChanged({ page = 1 }) {
+      this.changeCurrentPage(Number(page));
+    },
     onChangePoster(poster) {
       this.posterBg = poster;
     },
     onPageChanged(page) {
-      this.changeCurrentPage(page);
+      this.$router.push({ query: { page } });
     },
   },
 };
