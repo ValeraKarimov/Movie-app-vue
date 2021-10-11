@@ -40,6 +40,7 @@
     },
     methods: {
       ...mapActions('movies', ['removeMovie']),
+      ...mapActions(["showNotify"]),
       onMouseOver(poster) {
         this.$emit('changePoster', poster);
       },
@@ -48,6 +49,12 @@
 
         if (isComfirmed) {
           this.removeMovie(id);
+          this.showNotify({
+            msg: "Movie deleted successfull",
+            variant: "success",
+            title: "Success",
+
+          });
         }
       },
     },
