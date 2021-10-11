@@ -1,5 +1,4 @@
 function setParams(config) {
-  console.log(config);
   const params = config.params || {};
   config.params = Object.assign(params, {
     apiKey: process.env.VUE_APP_API_KEY,
