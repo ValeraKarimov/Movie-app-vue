@@ -42,7 +42,8 @@ export default {
 
 <style scoped>
 .movies-pagination {
-  margin-top: 30px;
+  margin-top: auto;
+
 }
 .movies-pagination >>> .pagination .page-item .page-link {
   background-color: transparent;
